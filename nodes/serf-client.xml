@@ -20,17 +20,20 @@
 mkdir -p /var/opt/rocks/serf/
 
 private_ip=`rocks list host interface &hostname; output-col=subnet,ip | grep ^private | awk '{print $2}'`
-<file name="/etc/serf/serf.json" perms="0600">
+<file name="/etc/serf/serf.json" perms="0600" rcs="false" vars="expanded">
+{
   "rejoin_after_leave": true,
   "bind": "$private_ip",
   "retry_join": ["&Kickstart_PrivateHostname;"]
+}
 </file>
 
 
 
 
-<file name"/etc/rc.d/rocksconfig.d/post-04-serf-setup" perms="0700">
-
+<file name="/etc/rc.d/rocksconfig.d/post-04-serf-setup" perms="0700" rcs="false">
+#!/bin/bash
+#
 
 # we need to wait for the shared.key
 while [ ! -f /etc/411-security/shared.key ] ; do
@@ -40,7 +43,7 @@ done
 # setup encryption key to talk to the other agent in the cluster
 encryption=`cat /etc/411-security/shared.key |grep -v BEGIN |grep -v END | base64 -d |dd bs=1 count=16 |base64`
 
-echo -e "{\n    "encrypt_key": "$encryption"\n}" > /etc/serf/encryptionkey.json
+echo -e "{\n    \"encrypt_key\": \"$encryption\"\n}" > /etc/serf/encryptionkey.json
 chmod 0600 /etc/serf/encryptionkey.json
 
 

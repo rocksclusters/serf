@@ -20,18 +20,18 @@
 localpasswd=$RANDOM$RANDOM
 # save it in a local file for easy access later on
 # non .json file are not loaded by serf
-<file name="/etc/serf/rpcauth" perms="0600">
+<file name="/etc/serf/rpcauth" perms="0600" rcs="false">
 $localpasswd
 </file>
 
 # only .json files are loaded by serf as configuration
-<file name="/etc/serf/rpcauth.json" perms="0600">
+<file name="/etc/serf/rpcauth.json" perms="0600" rcs="false">
 {
     "rpc_auth" : "$localpasswd"
 }
 </file>
 
-<file name="/etc/serf/serf-common.json" perms="0600">
+<file name="/etc/serf/serf-common.json" perms="0600" rcs="false">
 {
   "enable_syslog": true,
   "log_level": "info"
