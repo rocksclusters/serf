@@ -19,11 +19,6 @@
 	</changelog>
 
 	<!-- we need 411 set up before we can run -->
-	<order head="411-server">
-		<tail>serf-server</tail>
-	</order>
-	                        
-
 	<edge from="client">
 		<to>serf-client</to>
 		<to>serf-common</to>
