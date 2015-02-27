@@ -1,0 +1,15 @@
+
+Roll for Serf (https://www.serfdom.io/)
+
+This Roll installs Serf on every nodes of the cluster and
+configure to use it /etc/serf/ as a source of configuration.
+So every file which is droped in that folder with .json
+will be read as a configuration file.
+
+Serf uses a global encryption key for compuncation
+and a password for local comunication with the agent
+The password is also saved in /etc/serf/rpcauth for
+convinience.
+
+So to talk to serf you need to:
+serf members -rpc-auth=`/etc/serf/rpcauth`
