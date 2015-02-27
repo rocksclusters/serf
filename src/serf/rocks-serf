@@ -74,7 +74,7 @@ start() {
 
 stop() {
 	action "Stopping Rocks Serf: " \
-		/opt/rocks/bin/serf leave
+		/opt/rocks/bin/serf leave -rpc-auth=`cat /etc/serf/rpcauth`
 	RETVAL=$?
 
 	return $RETVAL
