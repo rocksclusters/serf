@@ -19,7 +19,8 @@
 # all other nodes if they lose it is ok so no need to snapshot
 mkdir -p /var/opt/rocks/serf/
 
-private_ip=`rocks list host interface &hostname; output-col=subnet,ip | grep ^private | awk '{print $2}'`
+private_ip=`rocks list host interface &hostname; output-col=subnet,iface,ip | \
+            awk '{if ($1 == "private" &amp;&amp; $2 !~ /vlan[0-9]*/ &amp;&amp; $4 ~ /-*/) {print $3}}'`
 <file name="/etc/serf/serf.json" perms="0600" rcs="false" vars="expanded">
 {
   "rejoin_after_leave": true,
