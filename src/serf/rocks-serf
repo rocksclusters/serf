@@ -65,7 +65,7 @@
 
 start() {
 	echo -n $"Starting Rocks Serf: " 
-	GOMAXPROCS=2 nohup /opt/rocks/bin/serf agent -config-dir /etc/serf/ < /dev/null &> /dev/null &
+	GOMAXPROCS=2 nohup /opt/rocks/bin/serf agent -config-dir /etc/serf/ < /dev/null >> /var/log/serf.log 2>&1 &
 	RETVAL=$?
 	success
 

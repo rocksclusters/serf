@@ -87,5 +87,7 @@ install::
 	mkdir -p $(ROOT)/var/opt/rocks/serf/
 	mkdir -p $(ROOT)/etc/rc.d/init.d/
 	install -m 755 rocks-serf $(ROOT)/etc/rc.d/init.d/
+	mkdir -p $(ROOT)/etc/logrotate.d/
+	install -m 644 logrotate_serf $(ROOT)/etc/logrotate.d/serf
 
 

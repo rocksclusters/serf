@@ -31,13 +31,6 @@ $localpasswd
 }
 </file>
 
-<file name="/etc/serf/serf-common.json" perms="0600" rcs="false">
-{
-  "enable_syslog": true,
-  "log_level": "info"
-}
-</file>
-
 
 </post>
 </kickstart>
