@@ -12,4 +12,4 @@ The password is also saved in /etc/serf/rpcauth for
 convinience.
 
 So to talk to serf you need to:
-serf members -rpc-auth=`/etc/serf/rpcauth`
+serf members -rpc-auth=`cat /etc/serf/rpcauth`
