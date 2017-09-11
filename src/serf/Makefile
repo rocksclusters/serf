@@ -78,8 +78,8 @@ REDHAT.ROOT	= $(CURDIR)/../../
 include Rules.mk
 
 build:
-	echo Nothing to build
-
+	/usr/bin/unzip -o $(ZIPFILE)
+	
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
 	install -m 755 serf $(ROOT)/$(PKGROOT)/

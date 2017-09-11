@@ -1,6 +1,8 @@
 PKGROOT	= /opt/rocks/bin
 NAME	= serf
 RELEASE = 0
+VERSION = 0.8.1
+ZIPFILE = $(NAME)_$(VERSION)_linux_amd64.zip
 
 INITD_DIR	= /etc/init.d
 INITD_SCRIPTS	= rocks-serf
