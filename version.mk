@@ -1,5 +1,5 @@
 ROLLNAME	= serf
-VERSION		= 1.0
+VERSION		= 0.8.1
 RELEASE		= 0
 COLOR		= darkslateblue
 
