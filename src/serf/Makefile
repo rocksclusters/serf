@@ -85,8 +85,8 @@ install::
 	install -m 755 serf $(ROOT)/$(PKGROOT)/
 	mkdir -p $(ROOT)/etc/serf/
 	mkdir -p $(ROOT)/var/opt/rocks/serf/
-	mkdir -p $(ROOT)/etc/rc.d/init.d/
-	install -m 755 rocks-serf $(ROOT)/etc/rc.d/init.d/
+	mkdir -p $(ROOT)/$(SCRIPTDIR)
+	install -m 755 $(SCRIPTS) $(ROOT)/$(SCRIPTDIR)
 	mkdir -p $(ROOT)/etc/logrotate.d/
 	install -m 644 logrotate_serf $(ROOT)/etc/logrotate.d/serf
 
