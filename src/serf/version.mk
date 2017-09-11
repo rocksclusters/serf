@@ -16,7 +16,8 @@ endif
 ifeq ($(VERSION.MAJOR),7)
 SCRIPTDIR = $(SYSTEMD_DIR)
 SCRIPTS = $(SYSTEMD_SCRIPTS)
-RPM.SCRIPTLETS.FILE = scriptlets
+RSYSLOGDIR = /etc/rsyslog.d
+RSYSLOG_SCRIPT = serf.conf 
 endif
 
 RPM.FILES	= \
@@ -24,4 +25,8 @@ $(PKGROOT)/*\n\
 /var/opt/rocks/$(NAME)\n\
 /etc/$(NAME)\n\
 /etc/logrotate.d/*\n\
-$(SCRIPTDIR)
+$(SCRIPTDIR)/*\n\
+
+ifeq ($(VERSION.MAJOR),7)
+RPM.FILES += $(RSYSLOGDIR)/*
+endif

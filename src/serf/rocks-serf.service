@@ -3,8 +3,11 @@ Description=Serf Dynamic Group Membership (hashicorp)
 
 [Service]
 Type=simple
+StandardOuput=syslog
+StandardError=syslog
+SyslogIdentifier=serf
 Environment=GOMAXPROCS=2
-ExecStart=/usr/bin/nohup /opt/rocks/bin/serf agent -config-dir /etc/serf/ < /dev/null >> /var/log/serf.log 2>&1
+ExecStart=/usr/bin/nohup /opt/rocks/bin/serf agent -config-dir /etc/serf/ < /dev/null
 ExecStop=/opt/rocks/bin/serf leave -rpc-auth=$(cat /etc/serf/rpcauth)
 
 [Install]

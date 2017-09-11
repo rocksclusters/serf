@@ -89,5 +89,7 @@ install::
 	install -m 755 $(SCRIPTS) $(ROOT)/$(SCRIPTDIR)
 	mkdir -p $(ROOT)/etc/logrotate.d/
 	install -m 644 logrotate_serf $(ROOT)/etc/logrotate.d/serf
-
-
+ifeq ($(VERSION.MAJOR),7)
+	mkdir -p $(ROOT)/$(RSYSLOGDIR)
+	install -m 644 $(RSYSLOG_SCRIPT) $(ROOT)/$(RSYSLOGDIR)
+endif

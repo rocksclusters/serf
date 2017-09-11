@@ -51,8 +51,13 @@ echo -e "{\n    \"encrypt_key\": \"$encryption\"\n}" > /etc/serf/encryptionkey.j
 chmod 0600 /etc/serf/encryptionkey.json
 
 
-/etc/init.d/rocks-serf start
-chkconfig rocks-serf on
+if [ -x /etc/init.d/rocks-serf ]; then  
+	/sbin/chkconfig rocks-serf on
+	/etc/init.d/rocks-serf start
+else
+	/usr/bin/systemctl enable rocks-serf
+	/usr/bin/systemctl start rocks-serf
+fi
 
 rm -rf /etc/rc.d/rocksconfig.d/post-04-serf-setup
 </file>

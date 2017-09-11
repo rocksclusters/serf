@@ -41,8 +41,11 @@ private_ip=`/opt/rocks/bin/rocks list host interface &hostname; output-col=subne
 }
 </file>
 
+if [ -x /etc/init.d/rocks-serf ]; then  
+	/sbin/chkconfig rocks-serf on
+else
+	/usr/bin/systemctl enable rocks-serf
+fi
 
-
-chkconfig rocks-serf on
 </post>
 </kickstart>
