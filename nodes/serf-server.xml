@@ -37,7 +37,7 @@ private_ip=`/opt/rocks/bin/rocks list host interface &hostname; output-col=subne
   "rejoin_after_leave": true,
   "replay_on_join": true,
   "bind": "$private_ip",
-  "retry_join": ["&Kickstart_PrivateHostname;"]
+  "retry_join": ["&Kickstart_PrivateHostname;.&Kickstart_PrivateDNSDomain;"]
 }
 </file>
 

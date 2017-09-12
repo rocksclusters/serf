@@ -28,7 +28,7 @@ echo "private_ip=$ip"
 {
   "rejoin_after_leave": true,
   "bind": "$private_ip",
-  "retry_join": ["&Kickstart_PrivateHostname;"]
+  "retry_join": ["&Kickstart_PrivateHostname;.&Kickstart_PrivateDNSDomain;"]
 }
 </file>
 
