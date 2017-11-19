@@ -56,6 +56,7 @@ if [ -x /etc/init.d/rocks-serf ]; then
 	/etc/init.d/rocks-serf start
 else
 	/usr/bin/systemctl enable rocks-serf
+	echo "/usr/bin/systemctl start rocks-serf" | /usr/bin/at now + 1 minutes
 fi
 
 rm -rf /etc/rc.d/rocksconfig.d/post-04-serf-setup
