@@ -1,5 +1,7 @@
 [Unit]
 Description=Serf Dynamic Group Membership (hashicorp) 
+Wants=rocks-rc-post.service
+After=rocks-rc-post.service
 
 [Service]
 Type=simple
@@ -12,4 +14,3 @@ ExecStop=/opt/rocks/bin/serf leave -rpc-auth=$(cat /etc/serf/rpcauth)
 
 [Install]
 WantedBy=multi-user.target
-After=rocks-post.service
