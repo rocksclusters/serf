@@ -3,7 +3,7 @@ Description=Serf Dynamic Group Membership (hashicorp)
 
 [Service]
 Type=simple
-StandardOuput=syslog
+StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=serf
 Environment=GOMAXPROCS=2
@@ -12,3 +12,4 @@ ExecStop=/opt/rocks/bin/serf leave -rpc-auth=$(cat /etc/serf/rpcauth)
 
 [Install]
 WantedBy=multi-user.target
+After=rocks-post.service

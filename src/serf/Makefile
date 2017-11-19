@@ -86,7 +86,7 @@ install::
 	mkdir -p $(ROOT)/etc/serf/
 	mkdir -p $(ROOT)/var/opt/rocks/serf/
 	mkdir -p $(ROOT)/$(SCRIPTDIR)
-	install -m 755 $(SCRIPTS) $(ROOT)/$(SCRIPTDIR)
+	install -m $(SCRIPTMODE) $(SCRIPTS) $(ROOT)/$(SCRIPTDIR)
 	mkdir -p $(ROOT)/etc/logrotate.d/
 	install -m 644 logrotate_serf $(ROOT)/etc/logrotate.d/serf
 ifeq ($(VERSION.MAJOR),7)
